@@ -2,7 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Weekly Tracker V0.1</title>
+<title>Weekly Tracker V0.3.2</title>
+
+<!-- 
+✔ Dynamic task rows
+✔ Editable task names
+✔ Clickable habit tracking grid
+✔ Automatic row scoring
+✔ Grand total scoring
+✔ Persistence with localStorage
+✔ Data stored as JSON
+-->
+
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -21,40 +32,17 @@
         <div class="cell">Fri</div>
         <div class="cell">Sat</div>
         <div class="cell">Sun</div>
+        <div class="cell">Score</div>
     </div>
 
-    <div class="row">
-        <div class="cell task">Walk</div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-    </div>
+    <button id="addRow">+ Add Task</button>
+    <div class="row total-row">
+    <div class="cell task">TOTAL</div>
+    <div class="cell" colspan="7"></div>
+    <div class="cell" id="grandTotal">0</div>
 
-    <div class="row">
-        <div class="cell task">Stretch</div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-    </div>
+</div>
 
-    <div class="row">
-        <div class="cell task">Meditate</div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-        <div class="cell button"></div>
-    </div>
 
 </div>
 

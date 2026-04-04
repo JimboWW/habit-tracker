@@ -44,3 +44,12 @@ h1 {
 .button.active {
     background: #4caf50;
 }
+
+.button.active {
+    background: #4caf50;
+}
+
+.total-row .cell {
+    background: #444;
+    font-weight: bold;
+}
