@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: #eee;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#tracker {
+    display: inline-block;
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    width: 60px;
+    height: 40px;
+    border: 1px solid #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task {
+    width: 120px;
+    background: #222;
+}
+
+.header .cell {
+    background: #333;
+    font-weight: bold;
+}
+
+.button {
+    cursor: pointer;
+    background: #1b1b1b;
+}
+
+.button.active {
+    background: #4caf50;
+}
