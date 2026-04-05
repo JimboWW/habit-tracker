@@ -23,6 +23,68 @@ function saveData() {
     localStorage.setItem("habitTracker", JSON.stringify(data));
 }
 
+// ---------- HIGHLIGHT TODAY ----------
+function highlightToday() {
+
+    const today = new Date().getDay();
+
+    // Map JS day numbers to your header labels
+    const dayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+    const todayName = dayNames[today];
+
+    const headerCells = document.querySelectorAll(".header .cell");
+
+    headerCells.forEach(cell => {
+
+        if (cell.textContent === todayName) {
+            cell.classList.add("today");
+        } else {
+            cell.classList.remove("today");
+        }
+
+    });
+
+}
+
+// ---------- DISPLAY CURRENT DATE ----------
+function displayCurrentDate() {
+
+    const today = new Date();
+
+    const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+    };
+
+    const formattedDate = today.toLocaleDateString(undefined, options);
+
+    document.getElementById("currentDate").textContent = formattedDate;
+
+    highlightToday();
+
+}
+
+// ---------- UPDATE DATE AT MIDNIGHT ----------
+function scheduleMidnightUpdate() {
+
+    const now = new Date();
+
+    const midnight = new Date();
+    midnight.setHours(24,0,0,0);
+
+    const timeUntilMidnight = midnight - now;
+
+    setTimeout(() => {
+
+        displayCurrentDate();
+        scheduleMidnightUpdate();
+
+    }, timeUntilMidnight);
+
+}
 
 // ---------- UPDATE ROW SCORE ----------
 function updateScore(row) {
@@ -102,13 +164,19 @@ function createNewRow(taskName = "New Task") {
     return row;
 }
 
-
 // ---------- LOAD SAVED DATA ----------
 function loadData() {
 
     const saved = localStorage.getItem("habitTracker");
 
     if (!saved) return;
+
+    const tracker = document.getElementById("tracker");
+
+    // Remove all existing task rows first
+    document.querySelectorAll("#tracker .row:not(.header):not(.total-row)").forEach(row => {
+        row.remove();
+    });
 
     const data = JSON.parse(saved);
 
@@ -129,6 +197,7 @@ function loadData() {
         updateScore(row);
 
     });
+
 }
 
 
@@ -177,4 +246,14 @@ document.getElementById("tracker").addEventListener("click", function(e) {
 
 
 // ---------- INITIAL LOAD ----------
-window.addEventListener("DOMContentLoaded", loadData);
+window.addEventListener("DOMContentLoaded", () => {
+
+    loadData();
+
+    displayCurrentDate();
+
+    highlightToday();
+
+    scheduleMidnightUpdate();
+
+});

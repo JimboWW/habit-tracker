@@ -11,6 +11,8 @@ h1 {
 
 #tracker {
     display: inline-block;
+    max-height: 70vh;
+    overflow-y: auto;
 }
 
 .row {
@@ -53,3 +55,20 @@ h1 {
     background: #444;
     font-weight: bold;
 }
+
+#currentDate {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #aaa;
+}
+
+.today {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
