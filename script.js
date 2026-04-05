@@ -209,6 +209,22 @@ document.getElementById("addRow").addEventListener("click", () => {
 
 });
 
+// ---------- RESET WEEK BUTTON ----------
+const resetButton = document.getElementById("reset-week");
+
+resetButton.addEventListener("click", () => {
+    const rows = document.querySelectorAll("#tracker .row:not(.header):not(.total-row)");
+
+    rows.forEach(row => {
+        const buttons = row.querySelectorAll(".button");
+        buttons.forEach(btn => btn.classList.remove("active"));
+        updateScore(row); // update individual row score and grand total
+    });
+
+    // Save the reset state
+    saveData();
+});
+
 
 // ---------- EDIT TASK NAME ----------
 document.getElementById("tracker").addEventListener("click", function(e) {

@@ -1,9 +1,15 @@
 Thoughts 4/5 to 4/11
-* 
+* Place to enter dated notes
+* Button to weekly summaries
+* Button to Time/goals worksheet?
+* Other row enter numbers rather than just click
+* Button to credits
+
 
 TODO:
 * Add export and import data buttons for backup copy of data
 * Develop multipliers for certain rows
 * Save weekly score totals and display a top 10 weeks high score first
-* Develop special row for tracking weight and displaying week avg wt.
+* Button to special row for tracking weight and displaying week avg wt.
 * Develop stpecial row for tracking walk distance
+* Button to Reset week (clear all clicked boxes green to black)

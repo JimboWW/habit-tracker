@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Weekly Tracker V0.3.4</title>
+<title>Weekly Tracker V0.3.6</title>
 
 <!-- 
 ✔ Dynamic task rows
@@ -14,6 +14,7 @@
 ✔ Data stored as JSON
 ✔ Display current date
 ✔ Update date at midnight
+✔ Reset button to clear data
 -->
 
 <link rel="stylesheet" href="style.css">
@@ -24,6 +25,8 @@
 <h1>Weekly Tracker</h1>
 
 <div id="currentDate"></div>
+
+<div id="reset-column"><button id="reset-week">⟲</button></div>
 
 <div id="tracker">
 
@@ -40,6 +43,7 @@
     </div>
 
     <button id="addRow">+ Add Task</button>
+
     <div class="row total-row">
     <div class="cell task">TOTAL</div>
     <div class="cell" colspan="7"></div>
