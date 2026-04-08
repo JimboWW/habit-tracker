@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Weekly Tracker V0.3.6</title>
+<title>Weekly Tracker V0.3.7</title>
 
 <!-- 
-✔ Dynamic task rows
+✔ Dynamic task creation
 ✔ Editable task names
-✔ Clickable habit tracking grid
-✔ Automatic row scoring
-✔ Grand total scoring
-✔ Persistence with localStorage
-✔ Data stored as JSON
-✔ Display current date
-✔ Update date at midnight
-✔ Reset button to clear data
+✔ Daily toggle tracking
+✔ Row scoring
+✔ Grand total calculation
+✔ Reset week button
+✔ Current date display
+✔ Highlighted current day
+✔ Persistent storage
+✔ “Other” counter for miscellaneous activity
+✔ Manual JSON editing capability if needed
 -->
 
 <link rel="stylesheet" href="style.css">
@@ -42,15 +43,20 @@
         <div class="cell">Score</div>
     </div>
 
-    <button id="addRow">+ Add Task</button>
+    <button id="addRow">+ Add Task</button> 
 
     <div class="row total-row">
     <div class="cell task">TOTAL</div>
-    <div class="cell" colspan="7"></div>
+    <div class="cell" colspan="7"></div>     
     <div class="cell" id="grandTotal">0</div>
 
 </div>
 
+<div id="otherContainer">
+    <div class="cell task">Other</div>
+    <div id="otherCount">0</div>
+    <button id="otherPlus">+</button>
+</div>
 
 </div>
 

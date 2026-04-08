@@ -94,3 +94,23 @@ h1 {
 #reset-week:hover {
     background-color: #333;
 }
+
+#otherContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#otherCount {
+    width: 60px;
+    text-align: center;
+}
+
+#otherPlus {
+    width: 30px;
+    height: 30px;
+    background: #222;
+    color: #eee;
+    border: 1px solid #444;
+    cursor: pointer;
+}

@@ -118,6 +118,8 @@ function updateGrandTotal() {
         total += parseInt(score.textContent);
     });
 
+    total += otherValue;
+
     document.getElementById("grandTotal").textContent = total;
 }
 
@@ -258,6 +260,20 @@ document.getElementById("tracker").addEventListener("click", function(e) {
 
     });
 
+});
+
+let otherValue = 0;
+
+const otherCount = document.getElementById("otherCount");
+const otherPlus = document.getElementById("otherPlus");
+
+otherPlus.addEventListener("click", () => {
+
+    otherValue++;
+
+    otherCount.textContent = otherValue;
+
+    updateGrandTotal();
 });
 
 
