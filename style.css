@@ -1,3 +1,4 @@
+/* ---------- AS OF 4/8/26 ---------- */
 body {
     font-family: Arial, sans-serif;
     background: #111;
@@ -101,11 +102,7 @@ h1 {
     margin-top: 10px;
 }
 
-#otherCount {
-    width: 60px;
-    text-align: center;
-}
-
+#otherMinus,
 #otherPlus {
     width: 30px;
     height: 30px;
@@ -113,4 +110,16 @@ h1 {
     color: #eee;
     border: 1px solid #444;
     cursor: pointer;
+    margin: 0 3px;
+}
+
+#otherMinus:hover,
+#otherPlus:hover {
+    background: #333;
+}
+
+#otherCount {
+    width: 40px;
+    text-align: center;
+    font-weight: bold;
 }

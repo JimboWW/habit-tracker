@@ -21,6 +21,7 @@ function saveData() {
     });
 
     localStorage.setItem("habitTracker", JSON.stringify(data));
+
 }
 
 // ---------- HIGHLIGHT TODAY ----------
@@ -200,6 +201,16 @@ function loadData() {
 
     });
 
+    // ---------- LOAD OTHER COUNTER ----------
+    const savedOther = localStorage.getItem("otherCounter");
+
+    if (savedOther !== null) {
+        otherValue = parseInt(savedOther);
+        document.getElementById("otherCount").textContent = otherValue;
+    }
+    
+    updateGrandTotal();
+
 }
 
 
@@ -222,6 +233,9 @@ resetButton.addEventListener("click", () => {
         buttons.forEach(btn => btn.classList.remove("active"));
         updateScore(row); // update individual row score and grand total
     });
+
+    otherValue = 0;
+    document.getElementById("otherCount").textContent = 0;
 
     // Save the reset state
     saveData();
@@ -262,10 +276,12 @@ document.getElementById("tracker").addEventListener("click", function(e) {
 
 });
 
+// ---------- OTHER COUNTER ----------
 let otherValue = 0;
 
 const otherCount = document.getElementById("otherCount");
 const otherPlus = document.getElementById("otherPlus");
+const otherMinus = document.getElementById("otherMinus");
 
 otherPlus.addEventListener("click", () => {
 
@@ -273,9 +289,27 @@ otherPlus.addEventListener("click", () => {
 
     otherCount.textContent = otherValue;
 
+    localStorage.setItem("otherCounter", otherValue);
+
     updateGrandTotal();
+
 });
 
+otherMinus.addEventListener("click", () => {
+
+    if (otherValue > 0) {
+
+        otherValue--;
+
+        otherCount.textContent = otherValue;
+
+        localStorage.setItem("otherCounter", otherValue);
+
+        updateGrandTotal();
+
+    }
+
+});
 
 // ---------- INITIAL LOAD ----------
 window.addEventListener("DOMContentLoaded", () => {
