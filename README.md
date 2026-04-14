@@ -30,6 +30,9 @@ Stored keys:
 - `habitTracker` – task rows and daily completion state
 - `otherCounter` – miscellaneous activity counter
 
+Weekly summaries are stored as snapshots of task scores for each week.
+Each week can only be saved once to prevent duplicate records.
+
 ## Future Improvements
 
 Potential features under consideration:
@@ -42,7 +45,7 @@ Potential features under consideration:
 
 ## Thoughts 4/5 to 4/18
 * Place to enter dated notes
-* Button to weekly summaries
+✔ Button to weekly summaries
 * Button to Time/goals worksheet?
 * Other rows enter numbers rather than just click (weight and walking)
 * Button to credits

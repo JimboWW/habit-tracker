@@ -208,7 +208,7 @@ function loadData() {
         otherValue = parseInt(savedOther);
         document.getElementById("otherCount").textContent = otherValue;
     }
-    
+
     updateGrandTotal();
 
 }
@@ -310,6 +310,81 @@ otherMinus.addEventListener("click", () => {
     }
 
 });
+
+// -----------------------------
+// CREATE WEEKLY SUMMARY SNAPSHOT
+// -----------------------------
+function createWeeklySummary() {
+
+    const rows = document.querySelectorAll("#tracker .row:not(.header):not(.total-row)");
+
+    const tasks = [];
+
+    rows.forEach(row => {
+
+        const name = row.querySelector(".task").textContent;
+        const score = parseInt(row.querySelector(".score").textContent);
+
+        tasks.push({
+            name: name,
+            score: score
+        });
+
+    });
+
+    const total = parseInt(document.getElementById("grandTotal").textContent);
+
+    const weekLabel = getWeekLabel();
+
+    const summary = {
+        week: weekLabel,
+        tasks: tasks,
+        other: otherValue,
+        total: total
+    };
+
+    let summaries = JSON.parse(localStorage.getItem("weeklySummaries")) || [];
+
+    // Check if this week already exists
+    const alreadySaved = summaries.some(s => s.week === weekLabel);
+
+    if (alreadySaved) {
+        alert("A summary for " + weekLabel + " already exists.");
+        return;
+    }
+
+summaries.push(summary);
+
+localStorage.setItem("weeklySummaries", JSON.stringify(summaries));
+
+
+
+
+
+
+    alert("Weekly summary saved for " + weekLabel);
+}
+
+// -----------------------------
+// GENERATE WEEK LABEL
+// -----------------------------
+function getWeekLabel() {
+
+    const today = new Date();
+
+    const day = today.getDay();
+
+    const diff = today.getDate() - day + (day === 0 ? -6 : 1);
+
+    const monday = new Date(today.setDate(diff));
+
+    return "Week of " + monday.toLocaleDateString();
+
+}
+
+const weeklySummaryBtn = document.getElementById("weeklySummaryBtn");
+
+weeklySummaryBtn.addEventListener("click", createWeeklySummary);
 
 // ---------- INITIAL LOAD ----------
 window.addEventListener("DOMContentLoaded", () => {

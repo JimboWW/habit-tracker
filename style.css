@@ -73,11 +73,24 @@ h1 {
     flex-wrap: nowrap;
 }
 
-#reset-column {
+#control-buttons {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 5px; /* small space from main grid */
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+#control-buttons button {
+    width: 32px;
+    height: 32px;
+    background: #222;
+    color: #eee;
+    border: 1px solid #444;
+    cursor: pointer;
+}
+
+#control-buttons button:hover {
+    background: #333;
 }
 
 #reset-week {
